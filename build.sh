@@ -12,8 +12,8 @@ export CLANG_PATH="~/toolchains/bin"
 export PATH="$CLANG_PATH:$PATH"
 export CROSS_COMPILE=aarch64-linux-gnu-
 export CROSS_COMPILE_ARM32=arm-linux-gnueabi-
-export KBUILD_BUILD_USER=dh6k
-export KBUILD_BUILD_HOST=Suzumilover
+export KBUILD_BUILD_USER=suzumi
+export KBUILD_BUILD_HOST=vigilante
 
 echo
 echo "Kernel is going to be built using $KERNEL_DEFCONFIG"
