@@ -29,6 +29,7 @@ endif
 DTB_OBJS := $(shell find $(obj)/dts/ -name \*.dtb)
 
 DTBO_OBJS := $(shell find $(obj)/dts/ -name \*.dtbo)
+PATCH_KPM := /home/user/kernel_realme_sm8250/scripts/patch_kpm   # đường dẫn tuyệt đối
 
 # Add RTIC DTB to the DTB list if RTIC MPGen is enabled
 # Note, we keep this for compatibility with
@@ -44,6 +45,10 @@ rtic_mp.dtb: vmlinux FORCE
 
 $(obj)/Image: vmlinux FORCE
 	$(call if_changed,objcopy)
+ifeq ($(CONFIG_KPM),y)
+	$(Q)cd $(obj) && $(PATCH_KPM)
+	$(Q)mv -f $(obj)/oImage $@
+endif
 
 $(obj)/Image.bz2: $(obj)/Image FORCE
 	$(call if_changed,bzip2)
