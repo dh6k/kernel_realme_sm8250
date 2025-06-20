@@ -9,9 +9,9 @@ SELF_DIR=$(git -C $(dirname $0) rev-parse --show-toplevel)
 if ! [ -f "scripts/patch_kpm" ]; then
     log "No patch_kpm! downloading..."
     
-#TAG=$(curl -s https://api.github.com/repos/SukiSU-Ultra/SukiSU_KernelPatch_patch/releases/tag/0.11.4 | jq -r '.tag_name')
-	TAG=0.11.4
-    #<<< $(curl -L --silent https://api.github.com/repos/SukiSU-Ultra/SukiSU_KernelPatch_patch/releases)
+  TAG=$(curl -s https://api.github.com/repos/SukiSU-Ultra/SukiSU_KernelPatch_patch/releases/latest | jq -r '.tag_name')
+	#TAG=0.11-beta
+    <<< $(curl -L --silent https://api.github.com/repos/SukiSU-Ultra/SukiSU_KernelPatch_patch/releases)
     log "Latest tag is: $TAG"
 
     curl -Ls -o "scripts/patch_kpm" "https://github.com/SukiSU-Ultra/SukiSU_KernelPatch_patch/releases/download/$TAG/patch_linux"
