@@ -1067,7 +1067,7 @@ vfs_kern_mount(struct file_system_type *type, int flags, const char *name, void 
 bypass_orig_flow:
 #else
 	mnt = alloc_vfsmnt(name);
-#endif    
+#endif
 	if (!mnt)
 		return ERR_PTR(-ENOMEM);
 
