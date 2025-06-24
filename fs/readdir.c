@@ -147,7 +147,7 @@ static int fillonedir(struct dir_context *ctx, const char *name, int namlen,
 	struct old_linux_dirent __user * dirent;
 	unsigned long d_ino;
 #ifdef CONFIG_KSU_SUSFS_SUS_PATH
-	struct inode *inode;Add commentMore actions
+	struct inode *inode;
 #endif
 	if (buf->result)
 		return -EINVAL;
