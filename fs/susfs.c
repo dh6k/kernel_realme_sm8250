@@ -39,31 +39,6 @@ static LIST_HEAD(LH_SUS_PATH_SDCARD);
 static struct st_android_data_path android_data_path = {0};
 static struct st_sdcard_path sdcard_path = {0};
 
-// ADD THIS NEW COUNTING FUNCTION
-int susfs_get_sus_path_count(void) {
-	struct st_susfs_sus_path_list *cursor = NULL;
-	int android_data_count = 0;
-	int sdcard_count = 0;
-	int total_count = 0;
-
-	// Count Android data paths
-	list_for_each_entry(cursor, &LH_SUS_PATH_ANDROID_DATA, list) {
-		android_data_count++;
-	}
-
-	// Count SDCard paths
-	list_for_each_entry(cursor, &LH_SUS_PATH_SDCARD, list) {
-		sdcard_count++;
-	}
-
-	total_count = android_data_count + sdcard_count;
-
-	SUSFS_LOGI("sus_path count - Android data: %d, SDCard: %d, Total: %d\n", 
-			android_data_count, sdcard_count, total_count);
-
-	return total_count;
-}
-
 int susfs_set_i_state_on_external_dir(char __user* user_info, int cmd) {
 	struct path path;
 	int err = 0;

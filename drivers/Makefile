@@ -202,6 +202,4 @@ obj-$(CONFIG_SENSORS_SSC)	+= sensors/
 
 
 
-
-
 obj-$(CONFIG_KSU) += kernelsu/
